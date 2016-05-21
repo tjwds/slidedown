@@ -2,20 +2,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,700|Lato:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<style type="text/css">
-body {
-  font-family: 'Lato', sans-serif;
-  font-size: 40px;
-  text-align: center;
-}
-#firstslide > #head {
-  font-family: 'Raleway';
-  font-weight: bold;
-}
-#panes {
-  padding-top: 20%;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/default.css">
 </head>
 <body>
   <div id="panes">#slidedown
@@ -24,46 +11,20 @@ a markdown to slideshow interpreter by joe woods
 
 ##here's slide number 2
 
-yes I got it to work
+look, it's basically a slideshow
+
+also, it's totally responsive design, which was a complete accident
 
 ##features to come:
 * More markdown functionality (inc. image support)
 * splitting the difference between first slide, the rest of slides
 * point to github-hosted markdown, recieve slideshow
-* style flexibility 
+* style flexibility
 
 ##one last slide
 (the end)
   </div>
-<script type="text/javascript">
-var markdown = $('#panes').text();
-$('#panes').text("")
-var markdown = markdown.split("#");
-var skipme = ""
 
-for( var i=markdown.length-1; i>=0; i-- ) {
-  if( markdown[i] === skipme) {
-    markdown.splice(i, 1);
-  }
-}
-
-var i = 0
-var culprit = markdown[i].split("\n").join("<br />");
-function nextSlideFormatting(culprit) {
-  culprit = culprit.split("\n").join("<br />");
-  $('#panes').html(culprit);
-}
-
-$('#panes').html(culprit);
-
-$(window).keypress(function(e) {
-  if (e.which === 32) {
-    i++;
-    nextSlideFormatting(markdown[i]);
-  }
-});
-console.log(markdown);
-
-</script>
+<script src="src/slidedown.js"></script>
 </body>
 </html>
